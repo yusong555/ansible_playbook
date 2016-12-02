@@ -1,0 +1,13 @@
+---
+YSong_info:
+  author: ysong
+  description: ansible role to use sssd to integrate RHEL to use Windows AD
+  license: HPE 
+  min_ansible_version: 0.1
+  platforms:
+  - name: RHEL
+    versions:
+    - 0
+    - 1
+  categories:
+  - system

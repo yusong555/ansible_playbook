@@ -1,0 +1,6 @@
+---
+- include: 0_misc.yml
+- include: 2_kerberos.yml
+- include: 3_keytab.yml
+- include: 4_pam.yml
+- include: 5_sssd.yml

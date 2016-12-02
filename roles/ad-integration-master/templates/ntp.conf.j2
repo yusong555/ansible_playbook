@@ -1,0 +1,15 @@
+tinker panic 0
+disable monitor
+driftfile /var/lib/ntp/drift
+restrict default nomodify
+restrict -6 default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1
+restrict -6 ::1
+includefile /etc/ntp/crypto/pw
+keys /etc/ntp/keys
+# --- HPE TIMESERVERS ---
+restrict {{ ad_pdc_ip }} mask 255.255.255.255 nomodify notrap
+server {{ ad_pdc_ip }} iburst
+
+restrict {{ ad_sdc_ip }} mask 255.255.255.255 nomodify notrap
+server {{ ad_sdc_ip }} iburst

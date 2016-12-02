@@ -1,0 +1,6 @@
+---
+- name: Install Kerberos and LDAP clients
+  yum: name={{ item }} state=present
+  with_items:
+    - krb5-workstation
+    - openldap-clients

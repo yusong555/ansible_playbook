@@ -1,0 +1,12 @@
+---
+ad_workgroup: "DEMO"
+ad_realm: "DEMO.POC"
+ad_pdc: "pocdc02.demo.poc"
+ad_pdc_ip: "10.20.25.11"
+ad_sdc: "pocdc01.demo.poc."
+ad_sdc_ip: "10.20.25.10"
+ad_computer_ou: "OU=Servers,DC=demo,DC=poc"
+ad_service_account: "joindomain"
+ad_service_pass: "xxxx"
+acl_groups: "group1, group2"
+

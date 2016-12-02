@@ -1,0 +1,39 @@
+---
+- name: initiate users env
+  hosts: webservers
+  vars_files:
+   - group_vars/add.yml
+  remote_user: autoexp
+  become: True
+
+  pre_tasks:
+    - name: Define the default User Profile
+      copy: src=files/login.defs dest=/etc/login.defs owner=root mode=0644
+
+    - name: remove some default groups
+      group: name={{ item }} state=absent
+      with_items:
+       - techsup
+       - tools
+       - security
+
+    - name: create additional directories
+      file: path=/usr/spool/xcom path=/tools/ca state=directory state=directory
+  
+  roles:
+    - role: users
+
+  post_tasks:
+    - name: set no expired for some users
+      shell: chage -I -1 -m 0 -M 99999 -E -1 "{{ item }}"
+      with_items:
+        - autoexp
+        - acoequal
+        - emaasddm
+        - emaassis
+
+    - name: update users comment for users to fix up PCM
+      user: name={{ item.name }} comment={{ item.comment }}
+      with_items:
+       - { name: 'ntp', comment: 'Ntp User'}
+       - { name: 'snmp', comment: 'Smmsp User'}

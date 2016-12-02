@@ -1,0 +1,35 @@
+---
+groups_to_create:
+  - name: unixnsw
+    gid: 200
+  - name: unicentr
+    gid: 300
+  - name: stgadmin
+    gid: 400
+  - name: operator
+    gid: 500
+  - name: tools
+    gid: 600
+  - name: emcgrp
+    gid: 700
+  - name: cba
+    gid: 800
+  - name: unixph
+    gid: 900
+
+users:
+  - username: szlygw
+    name: HP Syd VMS Unix -  Chris Papaellina
+    group: 'unixnsw'
+    uid: 206
+    password: "$6$gYN3PkMmrDkRONm.$iexwBBkgupGXH/oDmYxHfbEz5rSRmGFpppKOh3HzsZY0sE8tLEtAf3awc3Rou1ucCLHiOM8cMRoulCB5t6lJv."
+  - username: pzd27s 
+    name: HP Syd VMS Unix -  yu song
+    group: 'unixnsw'
+    uid: 207
+    password: "$6$gYN3PkMmrDkRONm.$iexwBBkgupGXH/oDmYxHfbEz5rSRmGFpppKOh3HzsZY0sE8tLEtAf3awc3Rou1ucCLHiOM8cMRoulCB5t6lJv."
+  - username: dzm443
+    name: HP BestShore Unix - Esguerra, Angeline
+    group: 'unixph'
+    uid: 226
+    password: "$6$gYN3PkMmrDkRONm.$iexwBBkgupGXH/oDmYxHfbEz5rSRmGFpppKOh3HzsZY0sE8tLEtAf3awc3Rou1ucCLHiOM8cMRoulCB5t6lJv."

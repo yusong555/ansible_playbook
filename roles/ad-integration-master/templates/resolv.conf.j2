@@ -1,0 +1,4 @@
+domain {{ ad_realm | lower }}
+search {{ ad_realm | lower }}
+nameserver {{ ad_pdc_ip }}
+nameserver {{ ad_sdc_ip }}

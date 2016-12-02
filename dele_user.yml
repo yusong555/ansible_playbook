@@ -1,0 +1,10 @@
+---
+- name: initiate users env
+  hosts: webservers
+  vars_files:
+   - group_vars/del.yml
+  remote_user: autoexp
+  become: True
+
+  roles:
+    - role: users

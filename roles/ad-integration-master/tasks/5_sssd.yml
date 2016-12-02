@@ -1,0 +1,23 @@
+---
+- name: Install SSSD and related
+  yum: pkg={{ item }} state=present
+  with_items:
+    - sssd
+    - oddjob-mkhomedir
+    - authconfig
+    - realmd
+    - adcli
+
+- name: Join Linux to AD server
+  shell: echo {{ ad_service_pass }} |realmd  join -v -U {{ ad_service_account }} --membership-software=adcli --computer-ou="{{ ad_computer_ou }}" {{ ad_pdc }}
+
+- name: check /etc/krb5.keytab present or not
+  stat: path=/etc/krb5.keytab
+  register: showkeytab
+
+- name: Ensure SSSD is started and enabled on boot
+  service: name=sssd state=started enabled=yes
+  when: showkeytab.stat.exists == True
+
+- name: Ensure oddjobd for mkhomedir is started and enabled on boot
+  service: name=oddjobd state=started enabled=yes
